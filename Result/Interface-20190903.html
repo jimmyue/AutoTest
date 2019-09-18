@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+a.popup_link:hover {
+    color: red;
+}
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div class='heading'>
+<h1>接口自动化测试报告</h1>
+<p class='attribute'><strong>执行开始时间:</strong> 2019-09-03 18:42:19</p>
+<p class='attribute'><strong>执行用时:</strong> 0:00:02.549000</p>
+<p class='attribute'><strong>执行状态:</strong> 通过数 8</p>
+
+<p class='description'>测试结果：</p>
+</div>
+
+
+<p id='show_detail_line'>展示方式
+<a href='javascript:showCase(0)'>概览</a>
+<a href='javascript:showCase(1)'>失败</a>
+<a href='javascript:showCase(2)'>全部</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试集群/测试用例</td>
+    <td>数量</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>报错</td>
+    <td>查看</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_Api</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',8)">详情</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_1</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        通过</a>
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: **********测试用例NO.1：-----&gt;不执行**********
+
+Test case not executed!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_2</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        通过</a>
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: **********测试用例NO.2：-----&gt;正在执行**********
+用例名称：最新月份
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/common/getActualSaleYm?sourceType=segment_xiaoliang
+请求Params：{'sourceType': 'segment_xiaoliang'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[201908]}
+**********测试用例NO.2：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_3</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        通过</a>
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: **********测试用例NO.3：-----&gt;正在执行**********
+用例名称：整体市场销量预测概况
+请求方式：get, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/getPvOverview
+请求Params：{'sourceType': 'SEGMENT_XIAOLIANG', 'ymId': '201908'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"monthSalesInfo":{"segmentTitle":"整体市场-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":1630000,"yoyTitle":"预测销量同比","yoy":-0.11260981453545127},"yearSalesInfo":{"segmentTitle":"整体市场-全年预测销量","ymTitle":"2019年","salesTitle":"年预测销量","sales":21722457,"yoyTitle":"年预测销量同比","yoy":-0.017585447509313568},"totalSalesInfo":{"segmentTitle":"整体市场-年度实际销量累计","ymTitle":"2019年1~7月","salesTitle":"年累计销量","sales":12072457,"yoyTitle":"年累计销量同比","yoy":-0.005055219322955495}}]}
+**********测试用例NO.3：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_4</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        通过</a>
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: **********测试用例NO.4：-----&gt;正在执行**********
+用例名称：细分市场销量预测
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/get-attention-segment-list
+请求Params：{'sourceType': 'segment_xiaoliang', 'ymId': '201908'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"id":2006,"name":"A-H","salesInfo":{"segmentTitle":"A-H-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":279167,"yoyTitle":"预测销量同比","yoy":-0.03095614141659575}},{"id":2016,"name":"A-SUV-L","salesInfo":{"segmentTitle":"A-SUV-L-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":165918,"yoyTitle":"预测销量同比","yoy":-0.1738467973231358}},{"id":2005,"name":"A-M","salesInfo":{"segmentTitle":"A-M-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":188664,"yoyTitle":"预测销量同比","yoy":-0.17114489060715232}},{"id":2017,"name":"A-SUV-M","salesInfo":{"segmentTitle":"A-SUV-M-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":156960,"yoyTitle":"预测销量同比","yoy":-0.013295615275813244}},{"id":2009,"name":"B-M","salesInfo":{"segmentTitle":"B-M-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":113901,"yoyTitle":"预测销量同比","yoy":0.03694363773749809}},{"id":2014,"name":"A0-SUV-L","salesInfo":{"segmentTitle":"A0-SUV-L-月预测销量","ymTitle":"2019年8月","salesTitle":"月销量预测","sales":71274,"yoyTitle":"预测销量同比","yoy":-0.2488380671338989}}]}
+**********测试用例NO.4：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_5</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        通过</a>
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: **********测试用例NO.5：-----&gt;正在执行**********
+用例名称：厂商品牌-销量预测
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/get-manf-foreoverview-list
+请求Params：{'manfForeOverviewType': 'MANF_BRAND', 'ymId': '201908'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"base":{"id":13,"name":"北京现代-现代"},"rankChange":1,"sales":55392,"yoy":-0.11841100076394195,"mom":0.24264178033022255,"forecastVal":true},{"base":{"id":8,"name":"北京奔驰-奔驰"},"rankChange":-1,"sales":43994,"yoy":0.0740198232508178,"mom":-0.11288110985642841,"forecastVal":true},{"base":{"id":12,"name":"北京汽车"},"rankChange":0,"sales":5723,"yoy":-0.3994123202854444,"mom":0.2400866738894909,"forecastVal":true},{"base":{"id":150,"name":"郑州日产-东风风度"},"rankChange":0,"sales":52,"yoy":-0.8081180811808117,"mom":0.1063829787234043,"forecastVal":true},{"base":{"id":172,"name":"知豆电动车-知豆"},"rankChange":0,"sales":2,"yoy":-0.9444444444444444,"mom":1.0,"forecastVal":true}]}
+**********测试用例NO.5：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_6</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        通过</a>
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: **********测试用例NO.6：-----&gt;正在执行**********
+用例名称：厂商-销量预测
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/get-manf-foreoverview-list
+请求Params：{'manfForeOverviewType': 'MANF', 'ymId': '201908'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"base":{"id":89,"name":"上汽大众"},"rankChange":1,"sales":171006,"yoy":0.04764471999460884,"mom":0.30012924808028596,"forecastVal":true},{"base":{"id":109,"name":"一汽-大众"},"rankChange":-1,"sales":156413,"yoy":-0.10097654341566031,"mom":0.04267687036283996,"forecastVal":true},{"base":{"id":93,"name":"上汽通用"},"rankChange":0,"sales":103630,"yoy":-0.3029856669155283,"mom":0.12629062058471896,"forecastVal":true},{"base":{"id":34,"name":"东风日产"},"rankChange":0,"sales":99185,"yoy":0.004120350685375307,"mom":0.09034045313135541,"forecastVal":true},{"base":{"id":65,"name":"吉利汽车"},"rankChange":0,"sales":94090,"yoy":-0.15912239152777152,"mom":0.204305754659021,"forecastVal":true},{"base":{"id":30,"name":"东风本田"},"rankChange":2,"sales":77111,"yoy":0.26212845358124914,"mom":0.28217023328511326,"forecastVal":true},{"base":{"id":48,"name":"广汽丰田"},"rankChange":2,"sales":64752,"yoy":0.21101946922515857,"mom":0.11589432505557751,"forecastVal":true},{"base":{"id":110,"name":"一汽丰田"},"rankChange":-2,"sales":64640,"yoy":0.012008203779374726,"mom":-0.033825090055752405,"forecastVal":true},{"base":{"id":100,"name":"上汽通用五菱"},"rankChange":-2,"sales":62956,"yoy":-0.37822462766167586,"mom":-0.05484243870948369,"forecastVal":true},{"base":{"id":46,"name":"广汽本田"},"rankChange":0,"sales":58110,"yoy":-0.019008710919035776,"mom":0.12756131636137846,"forecastVal":true}]}
+**********测试用例NO.6：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_7</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        通过</a>
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: **********测试用例NO.7：-----&gt;正在执行**********
+用例名称：品牌-销量预测
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/get-manf-foreoverview-list
+请求Params：{'manfForeOverviewType': 'BRAND', 'ymId': '201908'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"base":{"id":31,"name":"大众"},"rankChange":0,"sales":254375,"yoy":-0.011790528728487626,"mom":0.16660628213183393,"forecastVal":true},{"base":{"id":15,"name":"本田"},"rankChange":1,"sales":134027,"yoy":0.1210207597985915,"mom":0.21469484674364225,"forecastVal":true},{"base":{"id":32,"name":"丰田"},"rankChange":-1,"sales":131350,"yoy":0.046646905080639955,"mom":-0.0050222326589047794,"forecastVal":true},{"base":{"id":75,"name":"日产"},"rankChange":0,"sales":100535,"yoy":-0.0221091743833165,"mom":0.07394272163054283,"forecastVal":true},{"base":{"id":51,"name":"吉利"},"rankChange":0,"sales":85020,"yoy":-0.1622489801548982,"mom":0.21403378503805448,"forecastVal":true},{"base":{"id":11,"name":"宝马"},"rankChange":1,"sales":59324,"yoy":-0.03128674069235793,"mom":0.07969787969787978,"forecastVal":true},{"base":{"id":10,"name":"别克"},"rankChange":1,"sales":57634,"yoy":-0.3564329901511937,"mom":0.09938196245994191,"forecastVal":true},{"base":{"id":6,"name":"奥迪"},"rankChange":1,"sales":56143,"yoy":-0.09927644350323273,"mom":0.08340248161942077,"forecastVal":true},{"base":{"id":90,"name":"现代"},"rankChange":1,"sales":55392,"yoy":-0.11846712075880073,"mom":0.24261390403122696,"forecastVal":true},{"base":{"id":7,"name":"奔驰"},"rankChange":-4,"sales":55260,"yoy":-0.03880607399419045,"mom":-0.09906091039520026,"forecastVal":true}]}
+**********测试用例NO.7：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_8</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        通过</a>
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: **********测试用例NO.8：-----&gt;正在执行**********
+用例名称：车型-销量预测
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/get-manf-foreoverview-list
+请求Params：{'manfForeOverviewType': 'SUBMODEL', 'ymId': '201908', 'segmentId': '2006'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"base":{"id":503,"name":"高尔夫"},"rankChange":0,"sales":10861,"yoy":-0.13897257016013953,"mom":0.18985539000876428,"forecastVal":true},{"base":{"id":511,"name":"观致3"},"rankChange":1,"sales":1860,"yoy":1.2409638554216866,"mom":1.327909887359199,"forecastVal":true},{"base":{"id":2168,"name":"高尔夫 嘉旅"},"rankChange":-1,"sales":1784,"yoy":-0.5736137667304015,"mom":0.6564531104921076,"forecastVal":true},{"base":{"id":513,"name":"观致3五门版"},"rankChange":0,"sales":5,"yoy":-0.7727272727272727,"mom":0.25,"forecastVal":true}]}
+**********测试用例NO.8：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+</body>
+</html>

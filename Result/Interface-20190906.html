@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+a.popup_link:hover {
+    color: red;
+}
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div class='heading'>
+<h1>接口自动化测试报告</h1>
+<p class='attribute'><strong>执行开始时间:</strong> 2019-09-06 15:46:08</p>
+<p class='attribute'><strong>执行用时:</strong> 0:00:04.787000</p>
+<p class='attribute'><strong>执行状态:</strong> 通过数 25</p>
+
+<p class='description'>测试结果：</p>
+</div>
+
+
+<p id='show_detail_line'>展示方式
+<a href='javascript:showCase(0)'>概览</a>
+<a href='javascript:showCase(1)'>失败</a>
+<a href='javascript:showCase(2)'>全部</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试集群/测试用例</td>
+    <td>数量</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>报错</td>
+    <td>查看</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_Api</td>
+    <td>25</td>
+    <td>25</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',25)">详情</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_01</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        通过</a>
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: **********测试用例NO.1：-----&gt;不执行**********
+
+Test case not executed!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_02</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        通过</a>
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: **********测试用例NO.2：-----&gt;不执行**********
+
+Test case not executed!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_03</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        通过</a>
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: **********测试用例NO.3：-----&gt;不执行**********
+
+Test case not executed!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_04</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        通过</a>
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: **********测试用例NO.4：-----&gt;正在执行**********
+用例名称：产品线变化-梯度图
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/product-line/getchart-bar
+请求Params：None
+请求Data：{"data": {"endYm": 201907, "startYm": 201501, "subModelId": 157}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"title":{"text":"产品线变化"},"legend":null,"xAxis":[{"type":"category","show":true,"data":["2015年4月(年式变化)","2017年8月(改款)","2018年4月(年式变化)"]}],"yAxis":[{"type":"value","show":true}],"series":[{"name":"柱状","type":"bar","data":[{"id":500872,"name":"3.0T 自动 F-TYPE COUPE","versionFullName":"捷豹 F-TYPE Coupe 2016 3.0T 自动 F-TYPE COUPE","launchDate":"2015-04-20","changes":{"id":6,"name":"年式变化"},"value":79.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":508520,"name":"3.0T 自动 F-TYPE Coupe","versionFullName":"捷豹 F-TYPE Coupe 2018 3.0T 自动 F-TYPE Coupe","launchDate":"2017-08-30","changes":{"id":5,"name":"改款"},"value":79.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":511127,"name":"2.0T 自动 硬顶版","versionFullName":"捷豹 F-TYPE Coupe 2019 2.0T 自动 硬顶版","launchDate":"2018-04-27","changes":{"id":6,"name":"年式变化"},"value":58.2,"newFlag":true,"subModelName":"F-TYPE Coupe"}]},{"data":[{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":119.00000000000001,"newFlag":false,"subModelName":null},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":119.00000000000001,"newFlag":false,"subModelName":null},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":97.39999999999999,"newFlag":false,"subModelName":null}]},{"name":"series","type":"line","data":[{"id":500872,"name":"3.0T 自动 F-TYPE COUPE","versionFullName":"捷豹 F-TYPE Coupe 2016 3.0T 自动 F-TYPE COUPE","launchDate":"2015-04-20","changes":{"id":6,"name":"年式变化"},"value":79.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":508520,"name":"3.0T 自动 F-TYPE Coupe","versionFullName":"捷豹 F-TYPE Coupe 2018 3.0T 自动 F-TYPE Coupe","launchDate":"2017-08-30","changes":{"id":5,"name":"改款"},"value":79.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":511127,"name":"2.0T 自动 硬顶版","versionFullName":"捷豹 F-TYPE Coupe 2019 2.0T 自动 硬顶版","launchDate":"2018-04-27","changes":{"id":6,"name":"年式变化"},"value":58.2,"newFlag":true,"subModelName":"F-TYPE Coupe"}],"stack":"总量2"},{"name":"series","type":"line","data":[{"id":500873,"name":"3.0T 自动 F-TYPE S COUPE","versionFullName":"捷豹 F-TYPE Coupe 2016 3.0T 自动 F-TYPE S COUPE","launchDate":"2015-04-20","changes":{"id":6,"name":"年式变化"},"value":97.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":508521,"name":"3.0T 自动 F-TYPE Coupe 400 Sport 四驱","versionFullName":"捷豹 F-TYPE Coupe 2018 3.0T 自动 F-TYPE Coupe 400 Sport 四驱","launchDate":"2017-08-30","changes":{"id":5,"name":"改款"},"value":105.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":511128,"name":"3.0T 自动 硬顶版","versionFullName":"捷豹 F-TYPE Coupe 2019 3.0T 自动 硬顶版","launchDate":"2018-04-27","changes":{"id":6,"name":"年式变化"},"value":74.78,"newFlag":false,"subModelName":"F-TYPE Coupe"}],"stack":"总量3"},{"name":"series","type":"line","data":[{"id":500817,"name":"3.0T 自动 F-Type S Coupe 四驱","versionFullName":"捷豹 F-TYPE Coupe 2016 3.0T 自动 F-Type S Coupe 四驱","launchDate":"2015-04-20","changes":{"id":6,"name":"年式变化"},"value":102.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":508522,"name":"5.0T 自动 F-TYPE Coupe SVR 四驱","versionFullName":"捷豹 F-TYPE Coupe 2018 5.0T 自动 F-TYPE Coupe SVR 四驱","launchDate":"2017-08-30","changes":{"id":5,"name":"改款"},"value":198.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":511129,"name":"3.0T 自动 四驱 R-Dynamic硬顶版","versionFullName":"捷豹 F-TYPE Coupe 2019 3.0T 自动 四驱 R-Dynamic硬顶版","launchDate":"2018-04-27","changes":{"id":6,"name":"年式变化"},"value":94.28,"newFlag":true,"subModelName":"F-TYPE Coupe"}],"stack":"总量4"},{"name":"series","type":"line","data":[{"id":503607,"name":"3.0T 自动 F-TYPE Coupe 英伦风尚特别版","versionFullName":"捷豹 F-TYPE Coupe 2016 3.0T 自动 F-TYPE Coupe 英伦风尚特别版","launchDate":"2016-04-25","changes":{"id":3,"name":"新型号"},"value":110.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":null,"newFlag":false,"subModelName":null},{"id":511130,"name":"5.0T 自动 四驱 SVR 硬顶版","versionFullName":"捷豹 F-TYPE Coupe 2019 5.0T 自动 四驱 SVR 硬顶版","launchDate":"2018-04-27","changes":{"id":6,"name":"年式变化"},"value":155.6,"newFlag":false,"subModelName":"F-TYPE Coupe"}],"stack":"总量5"},{"name":"series","type":"line","data":[{"id":500818,"name":"5.0T 自动 F-Type R Coupe 四驱","versionFullName":"捷豹 F-TYPE Coupe 2016 5.0T 自动 F-Type R Coupe 四驱","launchDate":"2015-04-20","changes":{"id":6,"name":"年式变化"},"value":155.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":null,"newFlag":false,"subModelName":null},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":null,"newFlag":false,"subModelName":null}],"stack":"总量6"},{"name":"series","type":"line","data":[{"id":503606,"name":"5.0T 自动 F-TYPE Coupe SVR 四驱","versionFullName":"捷豹 F-TYPE Coupe 2016 5.0T 自动 F-TYPE Coupe SVR 四驱","launchDate":"2016-04-25","changes":{"id":3,"name":"新型号"},"value":198.8,"newFlag":false,"subModelName":"F-TYPE Coupe"},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":null,"newFlag":false,"subModelName":null},{"id":null,"name":null,"versionFullName":null,"launchDate":null,"changes":null,"value":null,"newFlag":false,"subModelName":null}],"stack":"总量7"}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.4：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_05</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        通过</a>
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: **********测试用例NO.5：-----&gt;正在执行**********
+用例名称：产品线变化-气泡图
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/product-line/getchart-scatter
+请求Params：None
+请求Data：{"data": {"endYm": 201907, "startYm": 201501, "subModelId": 431}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"title":{"text":"产品线变化"},"legend":null,"xAxis":[{"type":"category","show":true,"data":["2015年7月(年式变化)","2016年3月(换代)","2017年3月(年式变化)","2017年9月(年式变化)","2018年6月(换代)"]}],"yAxis":[{"type":"value","show":true,"name":"MSRP(万元)"}],"series":[{"data":[["2015年7月(年式变化)","10.48","1.6L 手动 质惠版 时尚型","0.221407","2839","0.221407","22710","false"],["2015年7月(年式变化)","11.33","1.6L 手动 质惠版 舒适型","0.259572","3328","0.259572","26624","false"],["2015年7月(年式变化)","11.68","1.6L 自动 质惠版 时尚型","0.172036","2206","0.172036","17646","false"],["2015年7月(年式变化)","12.53","1.6L 自动 质惠版 舒适型","0.317616","4072","0.317616","32578","false"],["2015年7月(年式变化)","13.58","1.4T 双离合 质惠版 Sportline","0.029369","377","0.029369","3012","false"],["2016年3月(换代)","10.78","1.6L 手动 时尚型","0.134341","2444","0.135509","29328","false"],["2016年3月(换代)","11.98","1.6L 自动 时尚型","0.152773","2779","0.154102","33352","false"],["2016年3月(换代)","11.98","1.6L 手动 舒适型","0.255206","4643","0.257425","55713","false"],["2016年3月(换代)","12.78","1.4T 手动 230TSI 舒适型","0.009375","171","0.009457","2047","false"],["2016年3月(换代)","13.18","1.6L 自动 舒适型","0.37064","6743","0.373863","80914","false"],["2016年3月(换代)","14.18","1.4T 双离合 230TSI 舒适型","0.033255","605","0.033544","7260","false"],["2016年3月(换代)","14.38","1.6L 自动 豪华型","0.017522","319","0.017674","3825","true"],["2016年3月(换代)","14.48","1.4T 双离合 230TSI 25周年纪念版","0.017243","314","0.008696","1882","true"],["2016年3月(换代)","15.38","1.4T 双离合 230TSI 豪华型","0.009645","175","0.009729","2106","false"],["2017年3月(年式变化)","10.78","1.6L 手动 时尚型","0.179523","3198","0.184032","19187","false"],["2017年3月(年式变化)","11.98","1.6L 自动 时尚型","0.186457","3321","0.19114","19928","false"],["2017年3月(年式变化)","11.98","1.6L 手动 舒适型","0.180865","3222","0.185407","19330","false"],["2017年3月(年式变化)","12.29","1.6L 手动 两百万辆纪念版","0.018742","334","0.012808","1335","true"],["2017年3月(年式变化)","12.78","1.4T 手动 230TSI舒适型","0.003902","70","0.004","417","false"],["2017年3月(年式变化)","13.18","1.6L 自动 舒适型","0.357742","6372","0.366726","38234","false"],["2017年3月(年式变化)","13.49","1.6L 自动 两百万辆纪念版","0.020334","362","0.013896","1449","true"],["2017年3月(年式变化)","13.68","1.6L 自动 运动版","0.009675","172","0.003306","345","true"],["2017年3月(年式变化)","14.18","1.4T 双离合 230TSI舒适型","0.030137","537","0.030894","3221","false"],["2017年3月(年式变化)","14.38","1.6L 自动 豪华型","0.001557","28","0.001596","166","false"],["2017年3月(年式变化)","14.49","1.4T 双离合 230TSI两百万辆纪念版","0.006078","108","0.003115","325","true"],["2017年3月(年式变化)","14.68","1.4T 双离合 230TSI运动版","0.003966","71","0.002033","212","true"],["2017年3月(年式变化)","15.38","1.4T 双离合 230TSI豪华型","0.001021","18","0.001047","109","false"],["2017年9月(年式变化)","10.78","1.5L 手动 时尚型","0.155048","3160","0.181366","28444","false"],["2017年9月(年式变化)","11.98","1.5L 自动 时尚型","0.221242","4510","0.258795","40588","false"],["2017年9月(年式变化)","11.98","1.5L 手动 舒适型","0.07554","1540","0.088362","13858","false"],["2017年9月(年式变化)","12.26","1.5L 手动 舒适型+氙气大灯","0.078071","1591","0.050735","7957","true"],["2017年9月(年式变化)","12.78","1.4T 手动 230TSI舒适型","0.001475","30","0.001534","241","false"],["2017年9月(年式变化)","13.06","1.4T 手动 230TSI舒适型+氙气大灯","0.000208","4","0.000135","21","true"],["2017年9月(年式变化)","13.18","1.5L 自动 舒适型","0.211019","4301","0.246837","38712","false"],["2017年9月(年式变化)","13.46","1.5L 自动 舒适型+氙气大灯","0.228889","4666","0.148744","23328","true"],["2017年9月(年式变化)","14.18","1.4T 双离合 230TSI舒适型","0.009984","204","0.010381","1628","false"],["2017年9月(年式变化)","14.38","1.5L 自动 豪华型","0.001643","33","0.001708","268","false"],["2017年9月(年式变化)","14.46","1.4T 双离合 230TSI舒适型+氙气大灯","0.015772","321","0.01025","1607","true"],["2017年9月(年式变化)","15.38","1.4T 双离合 230TSI豪华型","0.001108","23","0.001152","181","false"],["2018年6月(换代)","11.28","1.5L 手动 时尚型","0.101822","780","0.104044","10146","false"],["2018年6月(换代)","12.48","1.5L 自动 时尚型","0.1823","1397","0.171949","16768","false"],["2018年6月(换代)","12.48","1.5L 手动 舒适型","0.0976","748","0.09973","9726","false"],["2018年6月(换代)","13.68","1.5L 自动 舒适型","0.312144","2393","0.318956","31104","false"],["2018年6月(换代)","14.08","1.5L 自动 精英型","0.191718","1470","0.195902","19104","true"],["2018年6月(换代)","14.88","1.5L 自动 豪华型","0.01908","146","0.019497","1901","false"],["2018年6月(换代)","15.08","1.4T 双离合 280TSI 精英型","0.067648","519","0.063807","6222","true"],["2018年6月(换代)","15.98","1.4T 双离合 280TSI 豪华型","0.027688","212","0.026116","2547","true"]]}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.5：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_06</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        通过</a>
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: **********测试用例NO.6：-----&gt;正在执行**********
+用例名称：生成价格图标
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/composite-analysis/price-change/price-chart
+请求Params：None
+请求Data：{"data": {"startYmId": 201507, "endYmId": 201904, "subModelId": 431, "statDimension": "NODE", "changesId": 4}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"title":null,"legend":{"show":true,"data":["加权MSRP","加权TP"]},"xAxis":[{"type":"category","show":true,"data":["2016年3月(换代)","2018年6月(换代)"]}],"yAxis":[{"type":"value","show":true,"name":"价格（万元）"}],"series":[{"name":"加权MSRP","type":"line","data":[{"nodeName":"2016年3月(换代)","tp":10.891676067375,"msrp":12.2452392,"tpIncre":null,"msrpIncre":null,"value":12.2452392},{"nodeName":"2018年6月(换代)","tp":11.150168729923221,"msrp":13.33203439881304,"tpIncre":0.023733047232511052,"msrpIncre":0.08875246788262325,"value":13.33203439881304}]},{"name":"加权TP","type":"line","data":[{"nodeName":"2016年3月(换代)","tp":10.891676067375,"msrp":12.2452392,"tpIncre":null,"msrpIncre":null,"value":10.891676067375},{"nodeName":"2018年6月(换代)","tp":11.150168729923221,"msrp":13.33203439881304,"tpIncre":0.023733047232511052,"msrpIncre":0.08875246788262325,"value":11.150168729923221}]}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.6：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_07</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        通过</a>
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: **********测试用例NO.7：-----&gt;正在执行**********
+用例名称：品牌-销量预测
+请求方式：GET, 请求Url:http://i.way-s.cn/api/segment-forecast/forecast-overview/get-manf-foreoverview-list
+请求Params：{'manfForeOverviewType': 'BRAND', 'ymId': '201906'}
+请求Data：None
+页面返回信息：{"result_code":"200","result_msg":"执行成功","data":[{"base":{"id":31,"name":"大众"},"rankChange":0,"sales":293611,"yoy":0.4053752632586636,"mom":0.16578455234517997,"forecastVal":false},{"base":{"id":15,"name":"本田"},"rankChange":0,"sales":163699,"yoy":0.6247878432968408,"mom":0.1996116077971566,"forecastVal":false},{"base":{"id":32,"name":"丰田"},"rankChange":0,"sales":146870,"yoy":0.547792180419433,"mom":0.13380732918007987,"forecastVal":false},{"base":{"id":51,"name":"吉利"},"rankChange":1,"sales":120471,"yoy":0.3554952968180387,"mom":0.3140379581151833,"forecastVal":false},{"base":{"id":75,"name":"日产"},"rankChange":-1,"sales":112853,"yoy":0.36070752498884695,"mom":0.18775127875891973,"forecastVal":false},{"base":{"id":10,"name":"别克"},"rankChange":0,"sales":84251,"yoy":0.20911308840413323,"mom":0.18311777674797436,"forecastVal":false},{"base":{"id":18,"name":"长安"},"rankChange":2,"sales":81646,"yoy":0.5625430605527062,"mom":0.5993966462936844,"forecastVal":false},{"base":{"id":90,"name":"现代"},"rankChange":0,"sales":67951,"yoy":0.4584889461257782,"mom":0.31242877836793825,"forecastVal":false},{"base":{"id":6,"name":"奥迪"},"rankChange":1,"sales":66960,"yoy":0.5286275226006758,"mom":0.32854506855022714,"forecastVal":false},{"base":{"id":11,"name":"宝马"},"rankChange":-3,"sales":63614,"yoy":0.36933872912002763,"mom":0.07694391305083892,"forecastVal":false}]}
+**********测试用例NO.7：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_08</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        通过</a>
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: **********测试用例NO.8：-----&gt;正在执行**********
+用例名称：生命周期分析—口碑变化
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/comprehensive-analysis/word-of-mouth-compare
+请求Params：None
+请求Data：{"data": {"compareModelId": 1, "endYm": 202009, "granularity": 1, "startYm": 201501, "subModelId": 157}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"title":null,"legend":{"show":true,"data":["F-TYPE Coupe","350"]},"xAxis":[{"type":"category","show":true,"data":["2015年款","2016年款","2018年款","2019年款"]}],"yAxis":[{"type":"value","show":true,"name":"评分"}],"series":[{"name":"F-TYPE Coupe","type":"line","data":["-","84","90","89"]},{"name":"350","type":"line","data":["85","-","-","-"]}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.8：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_09</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        通过</a>
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: **********测试用例NO.9：-----&gt;正在执行**********
+用例名称：查询型号配置对比
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/composite-analysis/config-change/configs-compare
+请求Params：None
+请求Data：{"data": {"subModelId": 431, "versionIds": [506626, 506627], "startYmId": 201601, "endYmId": 201906}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":[{"datumVersion":{"id":506627,"name":"2017 1.6L 自动 时尚型","versionFullName":"大众 宝来 2017 1.6L 自动 时尚型","launchDate":null,"changes":null},"compVersion":{"id":506626,"name":"2017 1.6L 手动 时尚型","versionFullName":"大众 宝来 2017 1.6L 手动 时尚型","launchDate":null,"changes":null},"list":[{"configBigType":{"configTypeId":"91AA036B033F9942E050007F01004B03","configTypeName":"底盘及操控系统"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B036B9942E050007F01004B03","configTypeName":"安全"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03509942E050007F01004B03","configTypeName":"内部舒适"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03929942E050007F01004B03","configTypeName":"座椅"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03449942E050007F01004B03","configTypeName":"外部"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B039E9942E050007F01004B03","configTypeName":"功能"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03589942E050007F01004B03","configTypeName":"娱乐及信息"},"advaConfigList":[],"disaConfigList":[]}]}],"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.9：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_10</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.10')" >
+        通过</a>
+    <div id='div_pt1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.10: **********测试用例NO.10：-----&gt;正在执行**********
+用例名称：查询节点型号
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/composite-analysis/config-change/node-versions
+请求Params：None
+请求Data：{"data": {"startYmId": 201807, "endYmId": 201904, "subModelId": 431, "changesId": 5}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"subModel":{"id":431,"name":"宝来","launchDate":null,"picPath":"http://image.way-s.cn/cms_picture/car_picture/一汽-大众/大众/宝来/431_宝来/一汽-大众_大众_431_宝来_宝来_白底_20181025_061518.jpg"},"nodeVersions":null},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.10：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_11</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.11')" >
+        通过</a>
+    <div id='div_pt1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.11: **********测试用例NO.11：-----&gt;正在执行**********
+用例名称：查询型号配置表
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/composite-analysis/config-change/version-configs
+请求Params：None
+请求Data：{"data": {"subModelId": 431, "versionIds": [506626], "startYmId": 201601, "endYmId": 201906}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"manfName":"一汽-大众","subModelName":"宝来","picPath":"http://image.way-s.cn/cms_picture/car_picture/一汽-大众/大众/宝来/431_宝来/一汽-大众_大众_431_宝来_宝来_白底_20181025_061518.jpg","changesName":null,"selectNode":null,"versionDesc":[{"name":"型号","old":true},{"name":"2017 1.6L 手动 时尚型","old":false}],"configs":[["长（mm）","4562"],["宽（mm）","1793"],["高（mm）","1468"],["轴距(mm)","2614"],["发动机","1.6L"],["变速箱","5档手动"],["最大功率(kW)","81"],["最大扭矩(Nm)","155"],["综合油耗(L/100km)","6.3"]]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.11：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_12</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.12')" >
+        通过</a>
+    <div id='div_pt1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.12: **********测试用例NO.12：-----&gt;正在执行**********
+用例名称：配置对比（概览）
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/car-life-circle/config-param/config-compare
+请求Params：None
+请求Data：{"data": {"subModelName": "E100", "subModelId": "2893", "changeId": "6", "ymQuarter": "YM", "year": "2019", "yq": "04", "title": "\u5b9d\u9a8f E100 (\u5e74\u5f0f\u53d8\u5316)", "typeString": "2019\u5e744\u6708"}}
+页面返回信息：{"questUID":null,"data":[{"datumVersion":{"id":516615,"name":"2019 EV 电机 250KM 智行版","versionFullName":"宝骏 E100 2019 EV 电机 250KM 智行版","launchDate":null,"changes":null},"compVersion":{"id":511850,"name":"2018 EV 电机 智行版","versionFullName":"宝骏 E100 2018 EV 电机 智行版","launchDate":null,"changes":null},"list":[{"configBigType":{"configTypeId":"91AA036B033F9942E050007F01004B03","configTypeName":"底盘及操控系统"},"advaConfigList":[{"id":1890,"name":"可变扭力梁式后悬挂"}],"disaConfigList":[{"id":-9777,"name":"独立式后悬挂"},{"id":818,"name":"麦弗逊式后悬挂"}]},{"configBigType":{"configTypeId":"91AA036B036B9942E050007F01004B03","configTypeName":"安全"},"advaConfigList":[{"id":1670,"name":"实心盘式前制动器"},{"id":1453,"name":"脚刹式驻车"}],"disaConfigList":[{"id":3017,"name":"通风盘式前制动器"},{"id":1452,"name":"常规驻车"},{"id":1647,"name":"EBD/EBV"}]},{"configBigType":{"configTypeId":"91AA036B03509942E050007F01004B03","configTypeName":"内部舒适"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03929942E050007F01004B03","configTypeName":"座椅"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03449942E050007F01004B03","configTypeName":"外部"},"advaConfigList":[{"id":2365,"name":"无级前风窗雨刮器"},{"id":1000,"name":"导流尾翼"},{"id":3439,"name":"后保险杠镀铬条"},{"id":2822,"name":"行李箱盖饰条镀铬/金属色"},{"id":3221,"name":"车身同色外门把手"},{"id":3291,"name":"车身双色漆"}],"disaConfigList":[{"id":2901,"name":"普通前风窗雨刮器"},{"id":919,"name":"镀鉻/金属色/银色外门把手"},{"id":3458,"name":"非同色车顶"}]},{"configBigType":{"configTypeId":"91AA036B039E9942E050007F01004B03","configTypeName":"功能"},"advaConfigList":[{"id":1153,"name":"无钥匙启动"},{"id":2427,"name":"钥匙遥控开启行李箱"}],"disaConfigList":[{"id":1149,"name":"行车自动锁门装置"},{"id":2682,"name":"前驾驶席车窗一键式降"},{"id":2684,"name":"前副驾车窗一键式降"}]},{"configBigType":{"configTypeId":"91AA036B03589942E050007F01004B03","configTypeName":"娱乐及信息"},"advaConfigList":[],"disaConfigList":[]}]},{"datumVersion":{"id":516616,"name":"2019 EV 电机 250KM 智享版","versionFullName":"宝骏 E100 2019 EV 电机 250KM 智享版","launchDate":null,"changes":null},"compVersion":{"id":511851,"name":"2018 EV 电机 智享版","versionFullName":"宝骏 E100 2018 EV 电机 智享版","launchDate":null,"changes":null},"list":[{"configBigType":{"configTypeId":"91AA036B033F9942E050007F01004B03","configTypeName":"底盘及操控系统"},"advaConfigList":[{"id":1890,"name":"可变扭力梁式后悬挂"}],"disaConfigList":[{"id":-9777,"name":"独立式后悬挂"},{"id":818,"name":"麦弗逊式后悬挂"}]},{"configBigType":{"configTypeId":"91AA036B036B9942E050007F01004B03","configTypeName":"安全"},"advaConfigList":[{"id":1670,"name":"实心盘式前制动器"},{"id":3572,"name":"倒车影像带引导线"}],"disaConfigList":[{"id":3017,"name":"通风盘式前制动器"},{"id":1647,"name":"EBD/EBV"}]},{"configBigType":{"configTypeId":"91AA036B03509942E050007F01004B03","configTypeName":"内部舒适"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03929942E050007F01004B03","configTypeName":"座椅"},"advaConfigList":[],"disaConfigList":[]},{"configBigType":{"configTypeId":"91AA036B03449942E050007F01004B03","configTypeName":"外部"},"advaConfigList":[{"id":2365,"name":"无级前风窗雨刮器"},{"id":1000,"name":"导流尾翼"},{"id":3439,"name":"后保险杠镀铬条"},{"id":2822,"name":"行李箱盖饰条镀铬/金属色"},{"id":3221,"name":"车身同色外门把手"},{"id":3291,"name":"车身双色漆"}],"disaConfigList":[{"id":2901,"name":"普通前风窗雨刮器"},{"id":919,"name":"镀鉻/金属色/银色外门把手"},{"id":3458,"name":"非同色车顶"}]},{"configBigType":{"configTypeId":"91AA036B039E9942E050007F01004B03","configTypeName":"功能"},"advaConfigList":[{"id":2427,"name":"钥匙遥控开启行李箱"}],"disaConfigList":[{"id":1149,"name":"行车自动锁门装置"},{"id":2682,"name":"前驾驶席车窗一键式降"},{"id":2684,"name":"前副驾车窗一键式降"}]},{"configBigType":{"configTypeId":"91AA036B03589942E050007F01004B03","configTypeName":"娱乐及信息"},"advaConfigList":[],"disaConfigList":[]}]}],"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.12：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_13</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.13')" >
+        通过</a>
+    <div id='div_pt1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.13: **********测试用例NO.13：-----&gt;正在执行**********
+用例名称：参数对比
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/car-life-circle/config-param/param-compare
+请求Params：None
+请求Data：{"data": {"changeId": 6, "subModelId": 2893, "year": 2019, "ymQuarter": "YM", "yq": "04"}}
+页面返回信息：{"questUID":null,"data":{"manfName":"上汽通用五菱","subModelName":"E100","picPath":null,"changesName":"年式变化","selectNode":"201904","versionDesc":[{"name":"型号","old":true},{"name":"2018 EV 电机 智行版","old":true},{"name":"2019 EV 电机 250KM 智行版","old":false},{"name":"2018 EV 电机 智享版","old":true},{"name":"2019 EV 电机 250KM 智享版","old":false}],"configs":[["MSRP(万)","9.39","11.3","10.99","12.3"],["长宽高","2488*1506*1670","2488*1506*1670","2488*1506*1670","2488*1506*1670"],["轴距(mm)","1600","1600","1600","1600"],["综合功率（kW)","29","29","29","29"],["综合扭矩（Nm)","110","110","110","110"],["电池容量（Ah)","170","","170",""],["纯电续航里程(km)","200","250","200","250"],["快充时间(h)","-","","-",""]]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.13：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_14</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.14')" >
+        通过</a>
+    <div id='div_pt1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.14: **********测试用例NO.14：-----&gt;正在执行**********
+用例名称：概览信息查询列表
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/lifecircle-overview/lists
+请求Params：None
+请求Data：{"data": {"changesIds": [2], "endYm": 202007, "resultType": "YM", "startYm": 201501, "subModelIds": [431, 828]}}
+页面返回信息：{"questUID":null,"data":[{"id":431,"name":"宝来","launchDate":"2001-12-05","picPath":null,"brand":{"id":31,"name":"大众"},"manf":{"id":109,"name":"一汽-大众"},"segment":{"id":2005,"name":"A-M"},"timeChangesList":[]},{"id":828,"name":"速腾","launchDate":"2006-04-09","picPath":null,"brand":{"id":31,"name":"大众"},"manf":{"id":109,"name":"一汽-大众"},"segment":{"id":2006,"name":"A-H"},"timeChangesList":[]}],"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.14：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_15</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.15')" >
+        通过</a>
+    <div id='div_pt1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.15: **********测试用例NO.15：-----&gt;正在执行**********
+用例名称：算平均年限
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/lifecircle-overview/model-avg-age
+请求Params：None
+请求Data：{"data": [431, 828], "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"flAvgAge":3.4,"ngAvgAge":5.3},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.15：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_16</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.16')" >
+        通过</a>
+    <div id='div_pt1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.16: **********测试用例NO.16：-----&gt;正在执行**********
+用例名称：生命周期综合分析-口碑变化（单个）
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/comprehensive-analysis/word-of-mouth
+请求Params：None
+请求Data：{"data": {"compareModelId": 1, "endYm": 202001, "granularity": 1, "startYm": 201501, "subModelId": 157}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"title":null,"legend":{"show":true,"data":["F-TYPE Coupe"]},"xAxis":[{"type":"category","show":true,"data":["2015年4月(年式变化)","2017年8月(改款)","2018年4月(年式变化)"]}],"yAxis":[{"type":"value","show":true,"name":"评分"}],"series":[{"name":"F-TYPE Coupe","type":"line","data":["84","90","89"]}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.16：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_17</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.17')" >
+        通过</a>
+    <div id='div_pt1.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.17: **********测试用例NO.17：-----&gt;正在执行**********
+用例名称：生命周期综合分析-口碑变化（对比）
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/comprehensive-analysis/word-of-mouth-compare
+请求Params：None
+请求Data：{"data": {"compareModelId": 1, "endYm": 202001, "granularity": 1, "startYm": 201501, "subModelId": 157}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"title":null,"legend":{"show":true,"data":["F-TYPE Coupe","350"]},"xAxis":[{"type":"category","show":true,"data":["2015年款","2016年款","2018年款","2019年款"]}],"yAxis":[{"type":"value","show":true,"name":"评分"}],"series":[{"name":"F-TYPE Coupe","type":"line","data":["-","84","90","89"]},{"name":"350","type":"line","data":["85","-","-","-"]}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.17：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_18</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.18')" >
+        通过</a>
+    <div id='div_pt1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.18: **********测试用例NO.18：-----&gt;正在执行**********
+用例名称：生命周期综合分析-销量变化（时间粒度
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/comprehensive-analysis/sales-change-month
+请求Params：None
+请求Data：{"data": {"dataSource": "clh_xiaoliang", "endYm": 201901, "granularity": 1, "index": 1, "isCompetition": 0, "nodeId": 0, "startYm": 201801, "subModelId": 157, "subModelIdList": [828]}}
+页面返回信息：{"questUID":null,"data":{"title":null,"legend":{"show":true,"data":["F-TYPE Coupe 销量","速腾 销量",null]},"xAxis":[{"type":"category","show":true,"data":["2018年1月","2018年2月","2018年3月","2018年4月","2018年5月","2018年6月","2018年7月","2018年8月","2018年9月","2018年10月","2018年11月","2018年12月","2019年1月"]}],"yAxis":[{"type":"value","show":true,"name":"单位：辆"}],"series":[{"name":"F-TYPE Coupe 销量","type":"line","data":["-","-","-","-","-","-","-","-","-","-","-","-","-"]},{"name":"速腾 销量","type":"line","data":["32330","18775","26062","25942","23793","22993","25131","30729","28726","26359","29324","22673","25288"]},null]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.18：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.19' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_19</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.19')" >
+        通过</a>
+    <div id='div_pt1.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.19: **********测试用例NO.19：-----&gt;正在执行**********
+用例名称：生命周期综合分析-销量预测（节点）
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/comprehensive-analysis/sales-change-nodes
+请求Params：None
+请求Data：{"data": {"dataSource": "clh_xiaoliang", "endYm": 201901, "granularity": 1, "index": 1, "isCompetition": 0, "nodeId": 0, "startYm": 201801, "subModelId": 431, "subModelIdList": [828]}}
+页面返回信息：{"questUID":null,"data":{"title":null,"legend":{"show":true,"data":["销量","份额"]},"xAxis":[{"type":"category","show":true,"data":["2018年6月(换代)"]}],"yAxis":[{"type":"value","show":true,"name":"单位：辆"},{"type":"value","show":false,"name":"份额"}],"series":[{"name":"销量","yAxisIndex":0,"type":"bar","data":["52816"]},{"name":"份额","yAxisIndex":1,"type":"line","data":["3.1"]}]},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.19：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.20' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_20</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.20')" >
+        通过</a>
+    <div id='div_pt1.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.20: **********测试用例NO.20：-----&gt;正在执行**********
+用例名称：查询默认车型（dashborad --&gt;概览页面）
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/dashboard/get-default-subModels
+请求Params：None
+请求Data：{"data": {"endYm": 201908, "segmentId": 1003, "startYm": 201901, "subModelId": 431}}
+页面返回信息：{"questUID":null,"data":[{"key":5431,"value":"朗逸Plus"},{"key":606,"value":"卡罗拉"},{"key":902,"value":"轩逸"},{"key":431,"value":"宝来"},{"key":837,"value":"思域"},{"key":828,"value":"速腾"},{"key":925,"value":"英朗"},{"key":830,"value":"桑塔纳"},{"key":654,"value":"凌派"},{"key":651,"value":"雷凌"}],"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.20：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.21' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_21</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.21')" >
+        通过</a>
+    <div id='div_pt1.21' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.21: **********测试用例NO.21：-----&gt;正在执行**********
+用例名称：查询细分市场列表
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/dashboard/get-segments
+请求Params：None
+请求Data：{"data": {}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":[{"key":3,"value":"轿车","children":[{"key":1001,"value":"微型轿车"},{"key":1002,"value":"小型轿车"},{"key":1003,"value":"紧凑型轿车"},{"key":1004,"value":"中型轿车"},{"key":1005,"value":"中大型轿车"},{"key":1006,"value":"大型轿车"}]},{"key":2,"value":"SUV","children":[{"key":1007,"value":"小型SUV"},{"key":1008,"value":"紧凑型SUV"},{"key":1009,"value":"中型SUV"},{"key":1010,"value":"中大型SUV"},{"key":1011,"value":"大型SUV"}]},{"key":1,"value":"MPV","children":[{"key":1012,"value":"紧凑型MPV"},{"key":1013,"value":"中大型MPV"}]},{"key":5,"value":"跑车","children":[{"key":1014,"value":"跑车"}]}],"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.21：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.22' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_22</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.22')" >
+        通过</a>
+    <div id='div_pt1.22' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.22').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.22: **********测试用例NO.22：-----&gt;正在执行**********
+用例名称：获取型号表最新上市日期
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/dashboard/max-version-launch
+请求Params：None
+请求Data：{"data": {}, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":201909,"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.22：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.23' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_23</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.23')" >
+        通过</a>
+    <div id='div_pt1.23' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.23').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.23: **********测试用例NO.23：-----&gt;正在执行**********
+用例名称：PVA 变化-时间粒度-多个车型
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/pva-vary/getchart-comp-many-submodel
+请求Params：None
+请求Data：{"data": {"compSubModelList": [828], "indexType": "PVA_INDEX", "startYmId": 201807, "endYmId": 201904, "subModelId": 431, "cpvGradeId": "90FE18AEA9A222A9E053250110ACF9C3"}}
+页面返回信息：{"questUID":null,"data":null,"status":{"status":300000001,"msg2Client":"数据异常,CPV级别不存在","msg2Dev":"数据异常,CPV级别不存在"}}
+**********测试用例NO.23：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.24' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_24</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.24')" >
+        通过</a>
+    <div id='div_pt1.24' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.24').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.24: **********测试用例NO.24：-----&gt;正在执行**********
+用例名称：PVA 变化-时间粒度-单车车型或竞争圈
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/pva-vary/getchart-comp-one-submodel
+请求Params：None
+请求Data：{"data": {"compObjectId": 151, "compType": "SUB_MODEL", "startYmId": 201807, "endYmId": 201904, "subModelId": 431, "cpvGradeId": "90FE18AEA9A222A9E053250110ACF9C3"}}
+页面返回信息：{"questUID":null,"data":null,"status":{"status":300000001,"msg2Client":"数据异常,CPV级别不存在","msg2Dev":"数据异常,CPV级别不存在"}}
+**********测试用例NO.24：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='pt1.25' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_all_25</div></td>
+    <td colspan='5' align='center'>
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.25')" >
+        通过</a>
+    <div id='div_pt1.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.25: **********测试用例NO.25：-----&gt;正在执行**********
+用例名称：获取子车型CPV 级别
+请求方式：POST, 请求Url:http://i.ways.cn/api/car-life-circle/pva-vary/submodel-cpv-lv
+请求Params：None
+请求Data：{"data": 0, "questUID": "string"}
+页面返回信息：{"questUID":"string","data":{"key":"913D127476E2128DE053250110ACAC8B","value":"中型SUV"},"status":{"status":0,"msg2Client":"OK","msg2Dev":" successfully！"}}
+**********测试用例NO.25：-----&gt;测试结果：Pass **********
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>25</td>
+    <td>25</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+</body>
+</html>
