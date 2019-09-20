@@ -4,7 +4,7 @@
 Created on 2019年7月15日
 @author: yuejing
 '''
-from common import HTMLTestRunner
+from common import HTMLTestRunner_cn
 from common import eml
 from UiCase import SalesWhole
 from UiCase import SalesSegment
@@ -33,7 +33,7 @@ def report():
 	now=time.strftime("%Y%m%d", time.localtime(time.time()))
 	file_path = "./Result/Ui-"+now+".html"
 	file_result = open(file_path, 'wb')
-	HTMLTestRunner.HTMLTestRunner(stream=file_result,verbosity=3,title=u'UI自动化测试报告',description=u'测试结果:').run(suite)
+	HTMLTestRunner_cn.HTMLTestRunner(stream=file_result,verbosity=3,title=u'UI自动化测试报告',description=u'测试结果:').run(suite)
 	file_result.close()
 	print('\nThe html report has just been completed!')
 

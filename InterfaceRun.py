@@ -6,7 +6,7 @@ Created on 2019年6月21日
 '''
 from common import fileHandle
 from common import requestHandle
-from common import HTMLTestRunner
+from common import HTMLTestRunner_cn
 from common import eml
 from common import login
 import unittest
@@ -55,7 +55,7 @@ def report():
 	now = time.strftime("%Y%m%d", time.localtime(time.time()))
 	file_path = "./Result/Interface-"+now+".html"
 	file_result = open(file_path, 'wb')
-	HTMLTestRunner.HTMLTestRunner(stream=file_result,verbosity=3,title='接口自动化测试报告',description=u'测试结果：').run(suite)
+	HTMLTestRunner_cn.HTMLTestRunner(stream=file_result,verbosity=3,title='接口自动化测试报告',description=u'测试结果：').run(suite)
 	file_result.close()
 	print('\nThe html report has just been completed!')
 
