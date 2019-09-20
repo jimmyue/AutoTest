@@ -5,7 +5,7 @@ Created on 2019年5月21日
 @author: yuejing
 '''
 import cx_Oracle
-from . import readConfig
+from . import fileHandle
 
 def read_sql(file_name) :
 	f = open(file_name, "r")
@@ -22,9 +22,9 @@ def lists(tup) :
 
 class sqlHandle:
 
-	Config = readConfig.ReadConfig()
+	Config = fileHandle.configyaml('config.yaml').readyaml()
 
-	def __init__(self,host=Config.get_db("host"),db=Config.get_db("database"),user=Config.get_db("username"),password=Config.get_db("password")):
+	def __init__(self,host=Config['db_iw_p']['host'],db=Config['db_iw_p']['server_name'],user=Config['db_iw_p']['username'],password=Config['db_iw_p']['password']):
 		self.host=host
 		self.db=db
 		self.user=user

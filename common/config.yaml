@@ -1,0 +1,29 @@
+#数据库-IW正式环境
+db_iw_p:
+  host: 172.16.1.59
+  username: IWAYS_PROD_B
+  password: IWAYSPRODB#0124
+  port: 1521
+  server_name: DBIW
+
+#数据库-IW测试环境
+db_iw_t:
+  host: 172.16.1.35
+  username: DSSIWAYS
+  password: dss_iw2018
+  port: 1521
+  server_name: DBCMS
+
+#邮箱配置
+emil:
+  host: smtp.263.net
+  username: cmssystem@way-s.cn
+  password: cms#2018!
+
+#http配置
+http:
+  url: http://10.11.4.106
+  port: 8080
+  timeout: 6
+
+

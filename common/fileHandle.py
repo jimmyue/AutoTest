@@ -14,7 +14,6 @@ from xlutils.copy import copy
 class configyaml:
 	def __init__(self,file_path):
 		self.path=file_path
-		self.log=Log.Loggers(__name__)
 
 	def writeyaml(self,yaml_text):
 		file = open(self.path, 'a', encoding='utf-8')
@@ -32,7 +31,6 @@ class configyaml:
 		return data
 
 class txtHandle:
-
 	def __init__(self,file_path):
 		self.path=file_path
 
@@ -47,7 +45,6 @@ class txtHandle:
 			f.write(content)
 
 class excelHandle:
-
 	def __init__(self,file_path):
 		self.path=file_path
 
@@ -133,3 +130,15 @@ def style():
 	return style1,style2
 
 
+if __name__ == "__main__":
+	#write
+	b={'phone':{
+'platformName': 'Android',
+'platformVersion': [1,2,3],
+'chromeOptions': {'androidProcess': 'com.tencent.mm:tools','Process': 'tools'}
+}}
+	conf=configyaml('config.yaml')
+	conf.writeyaml(b)
+	#read
+	a=conf.readyaml()
+	print(a['emil']['host'])

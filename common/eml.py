@@ -5,12 +5,12 @@ Created on 2019年5月21日
 @author: yuejing
 '''
 import yagmail
-from . import readConfig
+from . import fileHandle
 import time
 
 class emlHandle:
-	Config = readConfig.ReadConfig()
-	def __init__(self,host=Config.get_email("mail_host"),user=Config.get_email("mail_user"),password=Config.get_email("mail_pass")):
+	Config = fileHandle.configyaml('config.yaml').readyaml()
+	def __init__(self,host=Config['emil']['host'],user=Config['emil']['username'],password=Config['emil']['password']):
 		self.host=host
 		self.user=user
 		self.password=password

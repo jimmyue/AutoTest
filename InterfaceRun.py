@@ -16,7 +16,7 @@ import ddt
 import time
 
 #DDT数据驱动测试：调用函数excel获取用例
-testdata = fileHandle.excelHandle('./InterfaceCase/生命周期接口测试.xls').excelRead()
+testdata = fileHandle.excelHandle('./InterfaceCase/销量预测.xls').excelRead()
 @ddt.ddt
 class test_Api(unittest.TestCase):
 	@classmethod
@@ -69,6 +69,6 @@ def emlsend():
 if __name__ == "__main__":
 	#unittest.main()
 	report()			#输出报告
-	#emlsend()			#发送邮件
+	emlsend()			#发送邮件
 
 
